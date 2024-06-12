@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Income</title>
+    <link rel="stylesheet" href="Styles/Income-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Pocket Planner Pro</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Dashboard.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Income.html">
+                        <span class="icon">
+                            <ion-icon name="trending-up-outline"></ion-icon>
+                        </span>
+                        <span class="title">Income</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Expense.html">
+                        <span class="icon">
+                            <ion-icon name="trending-down-outline"></ion-icon>
+                        </span>
+                        <span class="title">Expense</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Reports.html">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon> 
+                        </span>
+                        <span class="title">Reports</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Login.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <h2 class="Title">Monthly Income</h2>
+            <form id="income-form">
+                <input type="text" id="income-source" placeholder="Source" required>
+                <input type="number" id="income-amount" placeholder="Amount" required>
+                <input type="date" id="income-date" required>
+                <button type="submit">Add Income</button>
+             
+            </form>
+            
+            
+            <table id="income-table">
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="income-list">
+                </tbody>
+            </table>
+            <div class="pie-chart">
+                <canvas id="income-chart"></canvas>
+            </div>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const incomeForm = document.getElementById('income-form');
+            const incomeList = document.getElementById('income-list');
+            const incomeChart = document.getElementById('income-chart').getContext('2d');
+    
+            let incomeItems = [];
+            let chart = null;
+    
+            incomeForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const source = document.getElementById('income-source').value;
+                const amount = parseFloat(document.getElementById('income-amount').value);
+                const date = document.getElementById('income-date').value;
+    
+                if (source && amount && date) {
+                    const incomeItem = {
+                        source,
+                        amount,
+                        date
+                    };
+                    incomeItems.push(incomeItem);
+                    displayIncomeItems();
+                    displayChart();
+                    incomeForm.reset();
+                } else {
+                    alert('Please fill out all fields.');
+                }
+            });
+    
+            function displayIncomeItems() {
+                incomeList.innerHTML = '';
+                incomeItems.forEach(incomeItem => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${incomeItem.source}</td>
+                        <td>$${incomeItem.amount.toFixed(2)}</td>
+                        <td>${incomeItem.date}</td>
+                    `;
+                    incomeList.appendChild(row);
+                });
+            }
+    
+            function displayChart() {
+                if (chart !== null) {
+                    chart.destroy();
+                }
+    
+                const labels = incomeItems.map(incomeItem => incomeItem.source);
+                const amounts = incomeItems.map(incomeItem => incomeItem.amount);
+                
+                chart = new Chart(incomeChart, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: amounts,
+                            backgroundColor: [
+                                '#007bff',
+                                '#28a745',
+                                '#ffc107',
+                                '#dc3545',
+                                '#17a2b8',
+                                '#6610f2'
+                            ]
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Monthly Income Breakdown'
+                        }
+                    }
+                });
+            }
+        </script>
+
+         <!-- ====== ionicons ======= -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+
+    </div>
+
+    
+</body>
+</html>

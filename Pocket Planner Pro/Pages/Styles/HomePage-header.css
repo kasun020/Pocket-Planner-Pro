@@ -1,0 +1,71 @@
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container
+{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 75px;
+}   
+
+.logo
+{
+    height: 220px;
+}
+
+.Navigation-bar
+{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    height: 75px;
+
+}
+
+.Nav-button
+{
+    font-family: Roboto,Arial;
+    height: 45px;
+    width:100px;
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5;
+    border: none;
+    cursor: pointer;
+}
+
+.Nav-button:hover{
+    color: green;
+}
+
+
+
+.Login-button,.Register-button
+{
+    height: 45px;
+    width: 120px;
+    margin-right: 10px;
+    background-color: green;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: Roboto;
+    box-shadow: 2px 2px 5px black;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.Login-button:hover, .Register-button:hover
+{
+    background-color: #00B300;
+    color: black;
+}

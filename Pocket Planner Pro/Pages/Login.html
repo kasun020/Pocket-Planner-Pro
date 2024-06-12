@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in & Sign Up</title>
+    <link rel="stylesheet" href="Styles/login-style.css">
+</head>
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form class="signin-form"  action="/">
+
+                <label for="chk" aria-hidden="true">Sign In</label>
+                <input type="email" name="email" placeholder="User name or Email" required="">
+                <input type="password" name="pswd" placeholder="Password" id="" required="">   
+                
+
+            </form>
+
+            <a title="Nav-button" class="login-buttons-styles"  href="Dashboard.html">
+                <button class="SignIn-button-styles">Sign In</button>
+            </a>
+            <p id="create-new-account-text">Don't have an account <a href="#">Create an account</a>.</p>
+
+        </div>
+
+        <div class="login">
+
+            <form>
+                <label class="Signup-label" for="chk" aria-hidden="true">Sign Up</label>
+                <input type="text" name="txt" placeholder="User name" required="">
+                <input type="email" name="email" id="" placeholder="Email" required="">
+                <input type="password" name="pswd" placeholder="Password" id="" required="">
+                <input type="password" name="pswd" placeholder="Confirm Password" required="">
+
+            </form>
+
+            <a title="Nav-button" class="login-buttons-styles" href="Dashboard.html">
+                <button>Sign Up</button>
+            </a>
+             
+        </div>
+  
+    </div>
+</body>
+</html>

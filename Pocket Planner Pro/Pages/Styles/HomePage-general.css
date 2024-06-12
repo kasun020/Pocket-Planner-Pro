@@ -1,0 +1,18 @@
+body
+{
+    @media (max-width: 960px)
+    {
+        .header
+        {
+            flex-direction: column;
+        }
+
+        .Welcome-text
+        {
+            flex-direction: column;
+        }
+    }
+
+    margin: 0;
+
+}

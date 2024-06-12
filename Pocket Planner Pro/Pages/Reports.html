@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Reports</title>
+  <link rel="stylesheet" href="Styles/Report-style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Pocket Planner Pro</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Dashboard.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Income.html">
+                        <span class="icon">
+                            <ion-icon name="trending-up-outline"></ion-icon>
+                        </span>
+                        <span class="title">Income</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Expense.html">
+                        <span class="icon">
+                            <ion-icon name="trending-down-outline"></ion-icon>
+                        </span>
+                        <span class="title">Expense</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="Reports.html">
+                        <span class="icon">
+                            <ion-icon name="reader-outline"></ion-icon> 
+                        </span>
+                        <span class="title">Reports</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Login.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <h2 class="Title">Financial Reports</h2>
+
+            <div class="layout">
+
+                <div class="report-container">
+                    <canvas id="incomeVsExpensesChart"></canvas>
+                </div>
+        
+                <div class="report-container">
+                    <canvas id="budgetAdherenceChart"></canvas>
+                </div>
+        
+                <div class="report-container">
+                    <canvas id="financialActivitiesChart"></canvas>
+                </div>
+
+                <div class="report-container">
+                    <canvas id="expenseDistributionChart"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/Report-script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
